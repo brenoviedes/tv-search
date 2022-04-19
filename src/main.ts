@@ -1,8 +1,11 @@
 import renderSearchForm from './components/SearchForm'
 import './style.css'
+import './response.css'
+import './fonts.css'
+import './keyframes.css'
+
 
 const $ = document.querySelector.bind(document)
-
 
 /**
  *  Casting: conversão explícita de tipos

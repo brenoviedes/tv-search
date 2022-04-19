@@ -55,8 +55,6 @@ type TVShow = {
         tvShow.imageUrl = image.medium
     }
 
-
-  
     return tvShow
   }
   

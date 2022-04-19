@@ -1,69 +1,7 @@
-@font-face {
-  font-family: 'title';
-  src: url(/fonts/Raleway-Bold.ttf);
-}
-
-@font-face {
-  font-family: 'regular';
-  src: url(/fonts/Raleway-Regular.ttf);
-}
-
 :root {
   --bg-color: #24252a;
   --btn-color: #038aff;
 }
-
-@keyframes waveUp {
-  0%,
-  15% {
-    top: 50%;
-  }
-  45%,
-  65% {
-    top: 42.5%;
-  }
-  85%,
-  100% {
-    top: 50%;
-  }
-}
-
-@keyframes smallExtend {
-  0%,
-  8% {
-    background-color: #909090;
-    height: 20px;
-  }
-  14%,
-  34% {
-    background-color: #F8F8F8;
-    height: 47.5px;
-  }
-  46%,
-  100% {
-    background-color: #909090;
-    height: 20px;
-  }
-}
-
-@keyframes largeExtend {
-  0%,
-  8% {
-    background-color: #909090;
-    height: 20px;
-  }
-  14%,
-  34% {
-    background-color: #F8F8F8;
-    height: 82.5px;
-  }
-  46%,
-  100% {
-    background-color: #909090;
-    height: 20px;
-  }
-}
-
 
 * {
   margin: 0;
@@ -76,9 +14,7 @@ a {
 
 body {
   margin: 0;
-  /* background-color: var(--bg-color);
-   */
-   background-image: linear-gradient(to right, #2c2d31 , #35373e);
+  background-image: linear-gradient(to right, #2c2d31 , #35373e);
 }
 
 #app {
@@ -176,10 +112,6 @@ body {
   animation-delay: 0.6s;
 }
 
-
-
-
-
 #result-area {
   width: 80%;
   margin: 50px auto;
@@ -207,8 +139,6 @@ body {
   max-width: 210px;
   max-height: 295px;
 }
-
-
 
 #show-container {
   display: flex;
@@ -260,60 +190,4 @@ body {
   margin-top: 10px;
   position: absolute;
   bottom: 0;
-}
-
-
-
-@media screen and (max-width: 600px) {
-    #app {
-      width: 100%;
-    }
-
-    #search-form input, #search-form button {
-      display: block;
-      margin: auto;
-      border-radius: 15px;
-    }
-
-    #search-form input {
-      width: 300px;
-      margin-bottom: 20px;
-    }
-
-    .tv-card {
-      width: 100%;
-    }
-
-    .show-banner img {
-      width: 100%;
-    }
-
-    #show-container {
-      flex-direction: column;
-    }
-
-    #backlink {
-      position: relative;
-    }
-
-    #image-container {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 5px;
-    }
-
-    #image-container img {
-      width: 100%;      
-    }
-
-    #details-container {
-      text-align: left;
-      width: 100%;
-    }
-
-    #details-container a {
-      width: 100%;
-    }
 }

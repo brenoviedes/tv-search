@@ -3,6 +3,9 @@ import renderTVShowDetails from './components/TVShowDetails'
 import { API_URL } from './config'
 import { getTvShow } from './models/TVShow'
 import './style.css'
+import './response.css'
+import './fonts.css'
+import './keyframes.css'
 
 const searchTVShow = async (id: string) => {
     const http = axios.create({
@@ -22,6 +25,7 @@ const searchTVShow = async (id: string) => {
 const params = new URLSearchParams(document.location.search)
 const id = params.get('id')
 if(id) {
+
     searchTVShow(id)
 }
 
