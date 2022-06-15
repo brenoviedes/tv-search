@@ -1,8 +1,8 @@
 import renderSearchForm from './components/SearchForm'
-import './style.css'
-import './response.css'
-import './fonts.css'
-import './keyframes.css'
+import './css/style.css'
+import './css/response.css'
+import './css/fonts.css'
+import './css/keyframes.css'
 
 
 const $ = document.querySelector.bind(document)

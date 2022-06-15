@@ -1,4 +1,4 @@
-import TVShow from '../models/TVShow';
+import TVShow from '../../models/TVShow';
 
 const imageNotFound = '/img/no-img-portrait-text.png'
 

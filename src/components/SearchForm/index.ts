@@ -1,7 +1,7 @@
 import axios from 'axios'
-import { API_URL } from '../config'
-import { getTvShow } from '../models/TVShow'
-import renderTVShowCard from './TVShowCard'
+import { API_URL } from '../../config'
+import { getTvShow } from '../../models/TVShow'
+import renderTVShowCard from '../TVShowCard'
 
 const $ = document.querySelector.bind(document)
 const http = axios.create({
@@ -11,11 +11,19 @@ const http = axios.create({
 const renderSearchForm = (container: HTMLElement) => {
 
     const htmlContent = `
-    <div>
-        <form id="search-form">
-            <input type="text" name="filter" id="filter" placeholder="Digite o títuilo da série">
-            <button id="search">Pesquisar</button>
-        </form>
+    <div id="search-container">
+            <div id="search-area">
+                <div id="logo">
+                    <a href="/">
+                        <strong>TV</strong><strong>Search</strong><small>Api</small>
+                    </a>
+                </div>
+                <form id="search-form">
+                <input type="text" name="filter" id="filter" placeholder="Digite o títuilo da série">
+                <button id="search">Pesquisar</button>
+            </form>
+            </div>
+        </div>
             <div id="loading">
                 <div class="dot"></div>
                 <div class="dot"></div>
@@ -24,7 +32,6 @@ const renderSearchForm = (container: HTMLElement) => {
                 <div class="dot"></div>
             </div>
         </div>
-    
     `
 
     container.innerHTML = htmlContent
@@ -37,7 +44,6 @@ const renderSearchForm = (container: HTMLElement) => {
     })
 
 }
-
 
 // const filter = async (event: Event) => {
 const searchTVShows = async () => {
@@ -58,19 +64,9 @@ const searchTVShows = async () => {
             params: { q: filter }
         })
 
+        console.log(response)
+
         if (response.status == 200) {
-
-            const loading = <HTMLDivElement>$('#loading')
-
-            window.addEventListener('load', () => {
-                console.log('começou a carregar a página')
-                loading.style.display = "block"
-            })
-
-            window.onload = () => {
-                console.log('terminou de carregar a pagina')
-                loading.style.display = "none"
-            }
 
             const { data } = response
             const resultArea = <HTMLDivElement>$('#result-area')

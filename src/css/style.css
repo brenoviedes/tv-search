@@ -18,14 +18,46 @@ body {
 }
 
 #app {
-  width: 70%;
-  margin: auto;
-
+  width: 100%;
+  height: 90%;
+  margin: 0 auto;
 }
 
-#search-form {
-  text-align: center;
-  margin: 50px 0 20px 0;
+#search-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #000;
+}
+
+#search-area {
+  font-family: 'title';
+  width:60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#logo {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+#logo strong:first-child {
+  color: #007500;
+}
+
+#logo strong:last-of-type {
+  color: #f3f3f3;
+}
+
+#logo small {
+  font-size: 0.9rem;
+  color: #436577;
+  margin-left: 2px;
 }
 
 #search-form input {
@@ -52,6 +84,7 @@ body {
   border: 2px solid #ccc;
   cursor: pointer;
 }
+
 
 
 #loading {

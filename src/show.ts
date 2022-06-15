@@ -2,10 +2,10 @@ import axios from 'axios'
 import renderTVShowDetails from './components/TVShowDetails'
 import { API_URL } from './config'
 import { getTvShow } from './models/TVShow'
-import './style.css'
-import './response.css'
-import './fonts.css'
-import './keyframes.css'
+import './css/style.css'
+import './css/response.css'
+import './css/fonts.css'
+import './css/keyframes.css'
 
 const searchTVShow = async (id: string) => {
     const http = axios.create({
