@@ -23,67 +23,6 @@ body {
   margin: 0 auto;
 }
 
-#search-container {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-  background-color: #000;
-}
-
-#search-area {
-  font-family: 'title';
-  width:60%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-#logo {
-  text-transform: uppercase;
-  font-size: 1.5rem;
-  font-weight: 400;
-}
-
-#logo strong:first-child {
-  color: #007500;
-}
-
-#logo strong:last-of-type {
-  color: #f3f3f3;
-}
-
-#logo small {
-  font-size: 0.9rem;
-  color: #436577;
-  margin-left: 2px;
-}
-
-#search-form input {
-  width: 400px;
-  height: 30px;
-  line-height: 30px;
-  border: 2px solid #ccc;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px ;
-  text-align: center;
-  font-family: 'regular';
-  font-size: 100%;
-}
-
-#search-form button {
-  border: none;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  color: #fff;
-  background-color: var(--btn-color);
-  font-family: 'title';
-  font-size: 85%;
-  height: 30px;
-  border: 2px solid #ccc;
-  cursor: pointer;
-}
 
 
 
@@ -165,6 +104,8 @@ body {
 .tv-card h3 {
   font-family: 'title';
   color: #fff;
+  max-width: 210px;
+  margin: 0 auto;
 }
 
 .show-banner img {

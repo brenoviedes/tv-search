@@ -1,0 +1,22 @@
+#login-button {
+    width: 200px;
+    margin: auto;
+    text-align: center;
+    font-family: 'title';
+    font-size: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #999;
+    background-color: #ececec;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  #login-button img {
+    width: 30px;
+    border-right: 1px solid #999;
+    padding-right: 5px;
+  }

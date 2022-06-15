@@ -8,11 +8,10 @@ type TVShow = {
     premieredDate?: Date
     channel: string
     imageUrl?: string
+    summary?: HTMLParagraphElement
   }
   
-  // Arrow Function
   export const getTvShow = (objJson: any): TVShow => {
-    // Associação por desestruturação
     const {
       id,
       name,
@@ -23,7 +22,8 @@ type TVShow = {
       premiered,
       network,
       webChannel,
-      image
+      image,
+      summary
     } = objJson
   
     let year = 0
@@ -45,6 +45,7 @@ type TVShow = {
       genres,
       isRunning: status == 'Running' ? true : false,
       channel: network ? network.name : webChannel.name,
+      summary
     }
 
     if(premiered) {

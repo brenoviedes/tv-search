@@ -1,6 +1,7 @@
 import TVShow from '../../models/TVShow';
+import './style.css'
 
-const imageNotFound = '/img/no-img-portrait-text.png'
+const imageNotFound = 'assets//img/no-img-portrait-text.png'
 
 const renderTVShowCard = (show: TVShow, container: HTMLElement) => {
     const htmlContent = `
