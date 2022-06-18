@@ -1,0 +1,30 @@
+.favshow {
+  width: 15px;
+  height: 15px;
+  /* border: 1px solid orange; */
+  margin: 0 auto;
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.2em;
+}
+
+.favshow::after{
+  content: '\2606';
+  color: orange;
+  cursor: pointer;
+}
+
+/* .favshow:hover::after */
+
+.favshow.fav::after {
+  content:  '\2605';
+  color: orange;
+  cursor: pointer;
+}
+
+/* .favshow.fav:hover:after {
+  content: '\2606';
+} */
+

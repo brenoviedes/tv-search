@@ -11,9 +11,9 @@ const renderTVShowCard = (show: TVShow, container: HTMLElement) => {
                 <div class="show-banner">
                     <img src="${show.imageUrl || imageNotFound}" alt="${show.name}">
                 </div>
-
-                <h3>${show.name}</h3>
+            <h3>${show.name}</h3>
             </a>
+            <div class="favshow" data-item="${show.id}"></div>
         </div>
     `
     container.innerHTML += htmlContent

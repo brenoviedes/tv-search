@@ -1,13 +1,10 @@
 import TVShow from '../../models/TVShow'
 import './style.css'
 
-// const $ = document.querySelector.bind(document)
-
 const imageNotFound = '/img/no-img-portrait-text.png'
 
 const renderTVShowDetails = (show: TVShow, container: HTMLElement) => {
     const htmlContent = `
-        
     
     <div id="show-container">
     
@@ -32,17 +29,6 @@ const renderTVShowDetails = (show: TVShow, container: HTMLElement) => {
 
     container.innerHTML = htmlContent
 
-    // const loading = <HTMLDivElement>$('#loading')
-    
-    // window.addEventListener('load', () => {
-    //     console.log('começou a carregar a página')
-    //     loading.style.display = "block"
-    // })
-
-    // window.onload = () => {
-    //     console.log('terminou de carregar a pagina')
-    //     loading.style.display = "none"
-    // }
 }
 
 export default renderTVShowDetails

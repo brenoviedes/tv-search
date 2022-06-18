@@ -5,49 +5,59 @@
     justify-content: center;
     padding: 20px;
     background-color: #000;
-  }
-  
-  #search-area {
+}
+
+#search-area {
     font-family: 'title';
-    width:60%;
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-  }
-  
-  #logo {
+}
+
+#logo {
     text-transform: uppercase;
     font-size: 1.5rem;
     font-weight: 400;
-  }
-  
-  #logo strong:first-child {
+    margin: 0 auto 0 0;
+}
+
+#logo strong:first-child {
     color: #007500;
-  }
-  
-  #logo strong:last-of-type {
+}
+
+#logo strong:last-of-type {
     color: #f3f3f3;
-  }
-  
-  #logo small {
+}
+
+#logo small {
     font-size: 0.9rem;
     color: #436577;
     margin-left: 2px;
-  }
-  
-  #search-form input {
+}
+
+#user-photo img {
+    height: 50px;
+    border-radius: 50%;
+}
+
+#user-name {
+    margin: 0 20px;
+}
+
+
+#search-form input {
     width: 400px;
     height: 30px;
     line-height: 30px;
     border: 2px solid #ccc;
     border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px ;
+    border-bottom-left-radius: 15px;
     text-align: center;
     font-family: 'regular';
     font-size: 100%;
-  }
-  
-  #search-form button {
+}
+
+#search-form button {
     border: none;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -58,5 +68,17 @@
     height: 30px;
     border: 2px solid #ccc;
     cursor: pointer;
-  }
-  
+    margin-right: 20px;
+}
+
+#favorites {
+    margin-right: 20px;
+}
+
+#home {
+    margin-right: 20px;
+}
+
+#search-container span {
+    color: #fff;
+}

@@ -8,8 +8,12 @@ import './css/fonts.css'
 import './css/keyframes.css'
 import { renderHeader } from './components/Header'
 
+const token = localStorage.getItem('token')
 
-const searchTVShow = async (id: string) => {
+if(token) {
+    const app = <HTMLDivElement>document.querySelector('#app')
+
+    const searchTVShow = async (id: string) => {
      
     const http = axios.create({
         baseURL: API_URL
@@ -22,8 +26,6 @@ const searchTVShow = async (id: string) => {
         const {data} = response 
         const show = getTvShow(data)
         console.log(show)
-       
-        const app = <HTMLDivElement>document.querySelector('#app')
 
         renderTVShowDetails(show, app)
 
@@ -40,4 +42,13 @@ const id = params.get('id')
 if(id) {
     
     searchTVShow(id)
+}
+
+renderHeader(app)
+const resultArea = document.createElement('div')
+resultArea.id = 'result-area'
+app.insertAdjacentElement('beforeend', resultArea)
+
+} else {
+    location.href = 'login.html'
 }
