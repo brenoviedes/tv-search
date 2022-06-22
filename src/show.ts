@@ -25,7 +25,6 @@ if(token) {
         
         const {data} = response 
         const show = getTvShow(data)
-        console.log(show)
 
         renderTVShowDetails(show, app)
 
@@ -39,15 +38,9 @@ if(token) {
 
 const params = new URLSearchParams(document.location.search)
 const id = params.get('id')
-if(id) {
-    
-    searchTVShow(id)
-}
-
-renderHeader(app)
-const resultArea = document.createElement('div')
-resultArea.id = 'result-area'
-app.insertAdjacentElement('beforeend', resultArea)
+    if(id) {
+        searchTVShow(id)
+    }
 
 } else {
     location.href = 'login.html'

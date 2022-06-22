@@ -47,7 +47,6 @@ const onClickGithub = () => {
             }
         })
         .catch(error => {
-            console.log(error)
             const { errorCode, errorMessage } = error
             console.log(errorCode, errorMessage)
         })
@@ -79,21 +78,29 @@ const onClickMicrosoft = () => {
 
 const renderLoginButton = (container: HTMLElement) => {
     const htmlContent = `
-        <div id="container-login">
-            <button id="login-button-google" class="login-button">
-                <img src="/assets/img/google_icon.png" alt="Google">
-                <span>Entrar com Google</span>
-            </button>
-            <br>
-            <button id="login-button-github" class="login-button">
-                <img src="/assets/img/github.png" alt="Github">
-                <span>Entrar com Github</span>
-            </button>
-            <br>
-            <button id="login-button-microsoft" class="login-button">
-                <img src="/assets/img/microsoft.png" alt="Microsoft">
-                <span>Entrar com Microsoft</span>
-            </button>
+        <div id="container-content">
+            <div id="img-login">
+                
+            </div>
+            <div id="container-login">
+                <div id="logo">
+                    TV<strong>Search</             strong><small>Api</small>
+                </div>
+                <button id="login-button-google" class="login-button">
+                    <img src="/assets/img/google_icon.png" alt="Google">
+                    <span>Entrar com Google</span>
+                </button>
+                <br>
+                <button id="login-button-github" class="login-button">
+                    <img src="/assets/img/github.png" alt="Github">
+                    <span>Entrar com Github</span>
+                </button>
+                <br>
+                <button id="login-button-microsoft" class="login-button">
+                    <img src="/assets/img/microsoft.png" alt="Microsoft">
+                    <span>Entrar com Microsoft</span>
+                </button>
+            </div>
         </div>
     `
     container.innerHTML = htmlContent

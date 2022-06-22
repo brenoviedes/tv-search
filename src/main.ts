@@ -16,6 +16,10 @@ if(token) {
     resultArea.id = 'result-area'
     app.insertAdjacentElement('beforeend', resultArea)
 
+    const loadingContainer = document.createElement('div')
+    loadingContainer.id = 'carregando'
+    resultArea.insertAdjacentElement('afterbegin',loadingContainer)
+
 } else {
     location.href = 'login.html'
 }

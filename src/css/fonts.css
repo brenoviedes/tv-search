@@ -1,9 +1,14 @@
 @font-face {
     font-family: 'title';
-    src: url(/assets/fonts/Raleway-Bold.ttf);
+    src: url(/assets/fonts/Poppins-Bold.ttf);
   }
   
   @font-face {
     font-family: 'regular';
-    src: url(/assets/fonts/Raleway-Regular.ttf);
+    src: url(/assets/fonts/Poppins-Regular.ttf);
+  }
+
+  @font-face {
+    font-family: 'light';
+    src: url(/assets/fonts/Poppins-Light.ttf);
   }

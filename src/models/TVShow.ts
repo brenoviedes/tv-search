@@ -9,6 +9,9 @@ type TVShow = {
     channel: string
     imageUrl?: string
     summary?: HTMLParagraphElement
+    rating?: number | string
+    imdbID: string
+    officialSite: string
   }
   
   export const getTvShow = (objJson: any): TVShow => {
@@ -23,7 +26,10 @@ type TVShow = {
       network,
       webChannel,
       image,
-      summary
+      summary,
+      rating,
+      externals,
+      officialSite
     } = objJson
   
     let year = 0
@@ -45,7 +51,10 @@ type TVShow = {
       genres,
       isRunning: status == 'Running' ? true : false,
       channel: network ? network.name : webChannel.name,
-      summary
+      summary,
+      rating: rating.average !== null ? rating.average : 'S/N',
+      imdbID: externals.imdb,
+      officialSite: officialSite !== null ? `<a href="${officialSite}" target="_blank">Ir para site oficial</a>` : 'Indisponível'
     }
 
     if(premiered) {
@@ -55,7 +64,6 @@ type TVShow = {
     if(image) {
         tvShow.imageUrl = image.medium
     }
-
     return tvShow
   }
   

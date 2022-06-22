@@ -3,7 +3,7 @@ import './css/response.css'
 import './css/fonts.css'
 import './css/keyframes.css'
 import { renderHeader } from './components/Header'
-import renderFavorites from './components/Favorites'
+import renderFavorites, { renderFavCountAndClear } from './components/Favorites'
 
 const token = localStorage.getItem('token')
 
@@ -17,8 +17,17 @@ if(token) {
     resultArea.id = 'result-area'
     app.insertAdjacentElement('beforeend', resultArea)
 
-    renderFavorites()
 
+    const favCountAndClear = document.createElement('div')
+    favCountAndClear.id = 'fav-count-and-clear'
+    resultArea.insertAdjacentElement('beforebegin', favCountAndClear)
+
+    renderFavorites()
+    renderFavCountAndClear(favCountAndClear)
+
+    const loadingContainer = document.createElement('div')
+    loadingContainer.id = 'carregando'
+    resultArea.insertAdjacentElement('afterbegin',loadingContainer)
 } else {
     location.href = 'login.html'
 }

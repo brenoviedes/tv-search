@@ -40,55 +40,46 @@ export const renderHeader = (container: HTMLElement) => {
         `
     }
 
-
     const htmlContent = `
     <div id="search-container">
 
         <div id="search-area">
-            <div id="logo">
-                <a href="/">
-                    <strong>TV</strong><strong>Search</strong><small>Api</small>
-                </a>
+            
+            <div id="nav-left">
+                <div id="logo">
+                    <a href="/">
+                        <strong>TV</strong><strong>Search</strong><small>Api</small>
+                    </a>
+                </div>
+
+                <div id="user-photo">
+                    <img src="${photouser || '/assets/img/noUserPhoto.png'}" alt="foto de ${nameUser}">
+                </div>
+
+            
+
+                <span id="user-name">${nameUser}</span>
             </div>
+                
+                <div id="nav-right">
+                <form id="search-form" action="index.html">
+                    <input type="text" name="filter" id="filter" placeholder="Digite o títuilo da série">
+                    <button id="search">Pesquisar</button>
+                </form>
 
-            <div id="user-photo">
-                <img src="${photouser || '/assets/img/noUserPhoto.png'}" alt="foto de ${nameUser}">
-            </div>
+                <div id="navegation">
+                    ${favOrHome}
 
-            <span id="user-name">Bem vindo, ${nameUser}</span>
-
-            <form id="search-form">
-                <input type="text" name="filter" id="filter" placeholder="Digite o títuilo da série">
-                <button id="search">Pesquisar</button>
-            </form>
-
-           ${favOrHome}
-
-            <div id="logout">
-                <a href="logout.html">
-                    <span>Sair</span>
-                </a>
-            </div>          
-        </div>
-
-        <div id="loading">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
+                    <div id="logout">
+                        <a href="logout.html">
+                            <span>Sair</span>
+                        </a>
+                    </div> 
+                </div> 
+            </div>       
         </div>
     </div>
     `
 
     container.innerHTML = htmlContent
-
-    // const button = <HTMLButtonElement>$('#search')
-    // const loading = <HTMLDivElement>$('#loading')
-
-    // button.addEventListener('click', () => {
-    //     loading.style.display = "block"
-    // })
 }
-
-

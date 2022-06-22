@@ -1,20 +1,51 @@
 import axios from 'axios'
 import { API_URL } from '../../config/ApiTVMaze'
 import { getTvShow } from '../../models/TVShow'
+import updateFavs, { ClearFavsFunction } from '../../utils/favUtils'
+import { renderLoadingDiv } from '../../utils/loadingUtil'
 import renderTVShowCard from '../TVShowCard'
 import './style.css'
 
 const $ = document.querySelector.bind(document)
-const http = axios.create({
-    baseURL: API_URL,
-})
 
-const favorites = JSON.parse(<string>localStorage.getItem('favShow')) || []
+export const renderFavCountAndClear = (container: HTMLDivElement) => {
+    const qntFav = JSON.parse(<string>localStorage.getItem('favShow')) || []   
+
+    const htmlContent = `
+        <div id="container-favCountAndClear">
+            <div id="favCount">
+                <img src="/assets/img/estrela.png">
+                <span id="numFav">${qntFav?.length}</span>
+            </div>
+
+            <div id="favClear">
+                <span>Limpar Favoritos</span>
+            </div>
+        </div>
+    `
+    container.innerHTML = htmlContent
+
+    const clearFavs = <HTMLDivElement>document.querySelector('#favClear')
+
+    clearFavs.onclick = ClearFavsFunction
+
+}
 
 const renderFavorites = async () => {
 
+    const favorites = JSON.parse(<string>localStorage.getItem('favShow')) || []
+
+    const http = axios.create({
+        baseURL: API_URL,
+    })
+
     const resultArea = <HTMLDivElement>$('#result-area')
     resultArea.innerHTML = ''
+
+    const loadingGif = renderLoadingDiv('Estamos carregando seus favoritos')
+    resultArea.appendChild(loadingGif)
+    
+    let array: any[] = []
 
     for(const favorite of favorites) {
 
@@ -22,42 +53,18 @@ const renderFavorites = async () => {
         
         if(response.status == 200) {
             const {data} = response
-            const tvShow = getTvShow(data)
-            renderTVShowCard(tvShow, resultArea)
+            array.push(data)
         }
     }
-    
-    const fav = document.querySelectorAll('.favshow')
-    fav.forEach((item: any) => {
-        item.addEventListener('click', getID)
-        const favContainer = item
-        const id = item.getAttribute('data-item')
-        favorites.forEach((item: any) => {
-            if (item == id) {
-                favContainer.classList.add('fav')
-            }
-        })
+
+    resultArea.removeChild(loadingGif)
+
+    array.forEach((item: any) => {
+        const tvShow = getTvShow(item)
+        renderTVShowCard(tvShow, resultArea)
     })
-
-    function getID(event: any) {
-        const favContainer = event.target
-
-        let id = event.target.getAttribute('data-item')
-
-        const index = favorites.indexOf(id)
-
-        const existsInLocalStorage = index != -1
-
-        if (existsInLocalStorage) {
-            favorites.splice(index, 1)
-            favContainer.classList.remove('fav')
-        } else {
-            favorites.push(id)
-            favContainer.classList.add('fav')
-        }
-
-        localStorage.setItem('favShow', JSON.stringify(favorites))
-    }
+    
+    updateFavs()
     
 }
 
