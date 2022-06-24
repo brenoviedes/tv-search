@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { API_URL } from '../../config/ApiTVMaze'
 import { getTvShow } from '../../models/TVShow'
-import updateFavs, { ClearFavsFunction } from '../../utils/favUtils'
+import updateFavs, { ClearFavsFunction, renderNoFavs } from '../../utils/favUtils'
 import { renderLoadingDiv } from '../../utils/loadingUtil'
 import renderTVShowCard from '../TVShowCard'
 import './style.css'
@@ -9,7 +9,7 @@ import './style.css'
 const $ = document.querySelector.bind(document)
 
 export const renderFavCountAndClear = (container: HTMLDivElement) => {
-    const qntFav = JSON.parse(<string>localStorage.getItem('favShow')) || []   
+    const qntFav = JSON.parse(<string>localStorage.getItem('favShow')) || []
 
     const htmlContent = `
         <div id="container-favCountAndClear">
@@ -42,30 +42,39 @@ const renderFavorites = async () => {
     const resultArea = <HTMLDivElement>$('#result-area')
     resultArea.innerHTML = ''
 
-    const loadingGif = renderLoadingDiv('Estamos carregando seus favoritos')
-    resultArea.appendChild(loadingGif)
-    
-    let array: any[] = []
+    if (favorites.length === 0) {
+        resultArea.style.alignItems = 'center'
+        resultArea.style.justifyContent = 'center'
+        renderNoFavs(resultArea)
+    } else {
 
-    for(const favorite of favorites) {
+        const loadingGif = renderLoadingDiv('Estamos carregando seus favoritos')
+        resultArea.appendChild(loadingGif)
 
-        const response = await http.get(`/shows/${favorite}`)
-        
-        if(response.status == 200) {
-            const {data} = response
-            array.push(data)
+        let array: any[] = []
+
+        for (const favorite of favorites) {
+
+            const response = await http.get(`/shows/${favorite}`)
+
+            if (response.status == 200) {
+                const { data } = response
+                array.push(data)
+            }
         }
+
+        resultArea.removeChild(loadingGif)
+
+        array.forEach((item: any) => {
+            const tvShow = getTvShow(item)
+            renderTVShowCard(tvShow, resultArea)
+        })
+
+        updateFavs()
     }
 
-    resultArea.removeChild(loadingGif)
 
-    array.forEach((item: any) => {
-        const tvShow = getTvShow(item)
-        renderTVShowCard(tvShow, resultArea)
-    })
-    
-    updateFavs()
-    
+
 }
 
 export default renderFavorites

@@ -1,4 +1,4 @@
-#container-favCountAndClear{
+#container-favCountAndClear {
     width: 90%;
     margin: 10px auto 0 auto;
     display: flex;
@@ -9,7 +9,7 @@
     font-size: 110%;
 }
 
-#favCount{
+#favCount {
     margin-left: 10px;
     background-color: #e5bc00;
     display: flex;
@@ -20,7 +20,7 @@
     border-bottom-left-radius: 5px;
 }
 
-#favCount img{
+#favCount img {
     filter: invert(100%);
     margin: 0 5px 0 10px;
     display: flex;
@@ -28,11 +28,11 @@
     align-items: center;
 }
 
-#favCount span{
+#favCount span {
     margin: 0 10px 0 5px;
 }
 
-#favClear{
+#favClear {
     background-color: lightgray;
     padding: 5px;
     border-top-right-radius: 5px;
@@ -40,28 +40,53 @@
     cursor: pointer;
 }
 
-#result-area{
+#result-area {
     margin-top: 10px;
 }
 
+#noFav {
+    font-family: 'title';
+    font-size: 300%;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #666666;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: rgba(255, 255, 255, 0.5) 0px 3px 3px;
+    color: transparent;
+}
+
 @media screen and (max-width: 600px) {
-    #result-area{
+    #result-area {
         justify-content: flex-start;
     }
 
-   
+    #noFav{
+        font-size: 220%;
+    }
 
-   
 }
 
 @media screen and (max-width: 515px) {
 
-    #result-area{
+    #result-area {
         justify-content: center;
     }
 
-    #container-favCountAndClear{
+    #container-favCountAndClear {
         margin: 0 auto;
         justify-content: center;
+    }
+
+    #noFav{
+        font-size: 180%;
+    }
+}
+
+@media screen and (max-width: 290px) {
+    #noFav{
+        font-size: 130%;
     }
 }

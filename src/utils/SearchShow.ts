@@ -14,12 +14,14 @@ const searchTVShows = async () => {
     
     const params = new URLSearchParams(document.location.search)
     const filter = params.get('filter')
-
+        
 
     if (filter) {
+        
         const response = await http.get('/search/shows', {
             params: { q: filter }
         })
+            
         const resultArea = <HTMLDivElement>$('#result-area')
         resultArea.innerHTML = ''
 
@@ -33,7 +35,7 @@ const searchTVShows = async () => {
             })
 
         }
-    }
+    } 
 
     updateFavs()
 }

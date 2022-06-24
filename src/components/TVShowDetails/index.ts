@@ -43,43 +43,6 @@ const renderTVShowDetails = (show: TVShow, container: HTMLElement) => {
 
     container.innerHTML = htmlContent
 
-
-
-    let favorites = JSON.parse(<string>localStorage.getItem('favShow')) || []
-
-    const fav = document.querySelectorAll('.favshow')
-    fav.forEach((item) => {
-        item.addEventListener('click', getID)
-        const favContainer = item
-        const id = item.getAttribute('data-item')
-
-        favorites.forEach((item: any) => {
-            if (item == id) {
-                favContainer.classList.add('fav')
-            }
-        })
-    })  
-
-    function getID(event: any) {
-        const favContainer = event.target
-
-        let id = event.target.getAttribute('data-item')
-
-        const index = favorites.indexOf(id)
-
-        const existsInLocalStorage = index != -1
-
-        if (existsInLocalStorage) {
-            favorites.splice(index, 1)
-            favContainer.classList.remove('fav')
-        } else {
-            favorites.push(id)
-            favContainer.classList.add('fav')
-        }
-
-        localStorage.setItem('favShow', JSON.stringify(favorites))
-    }
-
 }
 
 export default renderTVShowDetails

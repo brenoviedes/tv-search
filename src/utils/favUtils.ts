@@ -16,6 +16,7 @@ const updateFavs = () => {
 
     function getID(event: any) {
 
+        
         const favorites = JSON.parse(<string>localStorage.getItem('favShow')) || []
 
         const favContainer = event.target
@@ -73,4 +74,18 @@ export function ClearFavsFunction() {
 
     attCountFav()
 
+}
+
+export const renderNoFavs = (container: HTMLDivElement) => {
+    
+    const htmlContent = `
+        <span id="noFav">
+            Adicione alguma série <br>
+            aos favoritos para <br>
+            visitá-la aqui <br>
+            &#128151;
+        </span>
+    `
+
+    container.innerHTML = htmlContent
 }

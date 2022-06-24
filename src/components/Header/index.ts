@@ -1,9 +1,11 @@
 import searchTVShows from '../../utils/SearchShow'
 import './style.css'
 
-searchTVShows()
+
 
 export const renderHeader = (container: HTMLElement) => {
+
+    searchTVShows()
 
     const photouser = localStorage.getItem('userPhotoUrl')
     const nameUser = localStorage.getItem('userName')
@@ -63,7 +65,7 @@ export const renderHeader = (container: HTMLElement) => {
                 
                 <div id="nav-right">
                 <form id="search-form" action="index.html">
-                    <input type="text" name="filter" id="filter" placeholder="Digite o títuilo da série">
+                    <input type="text" name="filter" id="filter" placeholder="Digite o título da série">
                     <button id="search">Pesquisar</button>
                 </form>
 
